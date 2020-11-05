@@ -98,7 +98,7 @@ public class Path {
            seq[i] = "";
        String fin="",ret="";
        seq = out.split("\n");
-       //upologismos se poses 60ades mporei na xwristei h stoixisi
+       //count how many subsequences of 60aa exist
         if(seq[0].length() >= seq[1].length()){
             if(seq[0].length()%60==0){
                 totalCount1 = seq[0].length()/60;
@@ -115,14 +115,14 @@ public class Path {
        int start = 0;
         for(int i=0;i<totalCount1;i++){
             fin="";
-            //60ades gia thn prwth akolouthia stoixisis
+            //60aa for the first sequence
             for(int j = start;j<(toRem+60);j++){
                 if(j < seq[0].length()){
                     fin += seq[0].charAt(j);   
                 }
             }
             fin += "\n";
-            //60ades gia th deuterh akolouthia stoixisis
+            //for the second sequence
             for(int j = start;j<(toRem+60);j++){
                 if(j < seq[1].length()){
                     fin += seq[1].charAt(j);
