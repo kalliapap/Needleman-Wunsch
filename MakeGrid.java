@@ -156,17 +156,15 @@ public class MakeGrid {
         int bestScore = 0;
         String direction="";
          while(i>0 || j>0){
-            //elegxos gia uparksh diakladwshs
+            //check for branch
             if(i>0 && j>0 && grid[i][j] == grid[i-1][j-1]+p.getScore(rowSeq.charAt(i), colSeq.charAt(j))
                     && (grid[i][j] == (grid[i-1][j]-8) || grid[i][j] == (grid[i][j-1]-8))){
-                //an uparxei diakladwsh apothikeusi twn stoixeiwn pou xreiazontai 
-                //direction -> h kateuthunsh pou prepei na paei otan epistrepsei gia 
-                //epomeno monopati se auto to shmeio
+                //if branch save all info needed 
+                //direction -> the direction for the next path
                 if(grid[i][j] == (grid[i-1][j]-8))
                     direction = "left";
                 else 
                     direction="top";
-                //vector me ta shmeia diakladwshs 
                 optPaths.add(new Path(direction,rowAlign,colAlign,i,j,bestScore));                         
             }
             if(i>0 && j>0 && grid[i][j] == grid[i-1][j-1]+p.getScore(rowSeq.charAt(i), colSeq.charAt(j))){
@@ -198,8 +196,7 @@ public class MakeGrid {
         int CounterOfPaths = 2;
         int pathsCounter=0;
         String out = "",ret="";
-       // System.out.println("bika secondPaths"+optPaths.size());
-        for(Path tmpPath : optPaths){ //gia oles tis diakladwseis pou vriskontai sto optPaths
+        for(Path tmpPath : optPaths){ 
             String rowAlign = tmpPath.getRowAlign();
             String colAlign = tmpPath.getColAlign();
             int i = tmpPath.getI(),j = tmpPath.getJ();
